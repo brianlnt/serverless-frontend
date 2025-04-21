@@ -210,8 +210,8 @@ packages:
   '@aws-amplify/data-schema-types@1.2.0':
     resolution: {integrity: sha512-1hy2r7jl3hQ5J/CGjhmPhFPcdGSakfme1ZLjlTMJZILfYifZLSlGRKNCelMb3J5N9203hyeT5XDi5yR47JL1TQ==}
 
-  '@aws-amplify/data-schema@1.20.4':
-    resolution: {integrity: sha512-YQ6KMvBnAAEQFYobR1pZjLr1QXlpgJGfEoSMfIMEjtrOiLiJmZEFJauWjO1Z7kUN/eaHldVcaysJ1IcSM9y3Sg==}
+  '@aws-amplify/data-schema@1.20.5':
+    resolution: {integrity: sha512-tMD0JfLj3SOhghsOrT8I3z3Ho/VfRfuG/johBNa8sweymzozYjHKK5TL2NJwu/xHB1Pbt0PaIshNxfIltHbEEQ==}
 
   '@aws-amplify/datastore@5.0.80':
     resolution: {integrity: sha512-/5yETkqAbDpcBK/iuBI7rNoPA6DxjYtWEbvEuCgOy9/fesCe0HVWm9IiTY2oCe2SdsflWztrVrJnaH+UAzvO1g==}
@@ -344,6 +344,10 @@ packages:
   '@aws-sdk/types@3.609.0':
     resolution: {integrity: sha512-+Tqnh9w0h2LcrUsdXyT1F8mNhXz+tVYBtP19LpeEGntmvHwa2XzvLUCWpoIAIVsHp5+HdB2X9Sn0KAtmbFXc2Q==}
     engines: {node: '>=16.0.0'}
+
+  '@aws-sdk/types@3.775.0':
+    resolution: {integrity: sha512-ZoGKwa4C9fC9Av6bdfqcW6Ix5ot05F/S4VxWR2nHuMv7hzfmAjTOcUiWT7UR4hM/U0whf84VhDtXN/DWAk52KA==}
+    engines: {node: '>=18.0.0'}
 
   '@aws-sdk/util-endpoints@3.614.0':
     resolution: {integrity: sha512-wK2cdrXHH4oz4IomV/yrGkftU9A+ITB6nFL+rxxyO78is2ifHJpFdV4aqk4LSkXYPi6CXWNru/Dqc7yiKXgJPw==}
@@ -1369,6 +1373,10 @@ packages:
     resolution: {integrity: sha512-bNwBYYmN8Eh9RyjS1p2gW6MIhSO2rl7X9QeLM8iTdcGRP+eDiIWDt66c9IysCc22gefKszZv+ubV9qZc7hdESg==}
     engines: {node: '>=16.0.0'}
 
+  '@smithy/types@4.2.0':
+    resolution: {integrity: sha512-7eMk09zQKCO+E/ivsjQv+fDlOupcFUCSC/L2YUPgwhvowVGWbPQHjEFcmjt7QQ4ra5lyowS92SV53Zc6XD4+fg==}
+    engines: {node: '>=18.0.0'}
+
   '@smithy/url-parser@3.0.11':
     resolution: {integrity: sha512-TmlqXkSk8ZPhfc+SQutjmFr5FjC0av3GZP4B/10caK1SbRwe/v+Wzu/R6xEKxoNqL+8nY18s1byiy6HqPG37Aw==}
 
@@ -2356,7 +2364,7 @@ snapshots:
     dependencies:
       '@aws-amplify/api-rest': 4.1.2(@aws-amplify/core@6.11.2)
       '@aws-amplify/core': 6.11.2
-      '@aws-amplify/data-schema': 1.20.4
+      '@aws-amplify/data-schema': 1.20.5
       '@aws-sdk/types': 3.387.0
       graphql: 15.8.0
       rxjs: 7.8.2
@@ -2373,7 +2381,7 @@ snapshots:
       '@aws-amplify/api-graphql': 4.7.13
       '@aws-amplify/api-rest': 4.1.2(@aws-amplify/core@6.11.2)
       '@aws-amplify/core': 6.11.2
-      '@aws-amplify/data-schema': 1.20.4
+      '@aws-amplify/data-schema': 1.20.5
       rxjs: 7.8.2
       tslib: 2.8.1
 
@@ -2400,7 +2408,7 @@ snapshots:
       graphql: 15.8.0
       rxjs: 7.8.2
 
-  '@aws-amplify/data-schema@1.20.4':
+  '@aws-amplify/data-schema@1.20.5':
     dependencies:
       '@aws-amplify/data-schema-types': 1.2.0
       '@smithy/util-base64': 3.0.0
@@ -2455,7 +2463,7 @@ snapshots:
   '@aws-crypto/sha256-js@5.2.0':
     dependencies:
       '@aws-crypto/util': 5.2.0
-      '@aws-sdk/types': 3.398.0
+      '@aws-sdk/types': 3.775.0
       tslib: 2.8.1
 
   '@aws-crypto/supports-web-crypto@5.2.0':
@@ -2464,7 +2472,7 @@ snapshots:
 
   '@aws-crypto/util@5.2.0':
     dependencies:
-      '@aws-sdk/types': 3.398.0
+      '@aws-sdk/types': 3.775.0
       '@smithy/util-utf8': 2.3.0
       tslib: 2.8.1
 
@@ -2899,6 +2907,11 @@ snapshots:
   '@aws-sdk/types@3.609.0':
     dependencies:
       '@smithy/types': 3.7.2
+      tslib: 2.8.1
+
+  '@aws-sdk/types@3.775.0':
+    dependencies:
+      '@smithy/types': 4.2.0
       tslib: 2.8.1
 
   '@aws-sdk/util-endpoints@3.614.0':
@@ -4004,6 +4017,10 @@ snapshots:
       tslib: 2.8.1
 
   '@smithy/types@3.7.2':
+    dependencies:
+      tslib: 2.8.1
+
+  '@smithy/types@4.2.0':
     dependencies:
       tslib: 2.8.1
 

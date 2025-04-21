@@ -1,14 +1,23 @@
-import { redirect } from "next/navigation"
-import { cookies } from "next/headers"
+"use client"
+
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
+import { useAuth } from "react-oidc-context"
 
 export default function CheckoutLayout({ children }) {
-  // Check if user is authenticated using the auth token in cookies
-  // This approach works with AWS Amplify's authentication
-  const authToken = cookies().get("amplify-authenticator-authToken")?.value
+  const router = useRouter()
+  const auth = useAuth()
 
-  // If no auth token is found, redirect to login
-  if (!authToken) {
-    redirect("/login?redirectTo=/checkout")
+  useEffect(() => {
+    // Check auth on client side
+    if (!auth.isAuthenticated) {
+      router.push("/login?redirectTo=/checkout")
+    }
+  }, [auth.isAuthenticated, router])
+
+  // Show loading or children based on auth state
+  if (!auth.isAuthenticated) {
+    return null // Or a loading spinner
   }
 
   return <>{children}</>
