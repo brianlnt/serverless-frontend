@@ -8,7 +8,7 @@ phases:
   build:
     commands:
       - pnpm run build  # Builds the project
-      - aws cloudfront create-invalidation --distribution-id E2KOZZQHUQI9Q2 --paths "/*"
+      - aws cloudfront create-invalidation --distribution-id E1J0UER6Y04W2A --paths "/*"
 artifacts:
   files:
     - '**/*'

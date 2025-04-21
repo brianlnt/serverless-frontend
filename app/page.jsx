@@ -16,6 +16,7 @@ export default function Home() {
     const fetchProducts = async () => {
       try {
         const data = await apiClient.products.getAll(query)
+        console.log("Fetched products:", data)
         setProducts(data)
       } catch (error) {
         console.error("Failed to fetch products:", error)
