@@ -4,9 +4,14 @@ phases:
   install:
     runtime-versions:
       nodejs: 18
+      # Add runtime platform specification
+      runtime-platform:
+        os: amazon-linux-2
     commands:
-      # Install pnpm globally
-      - npm install -g pnpm
+      # Use npm's n package to ensure correct Node.js version
+      - npm install -g n
+      - n 18.17.0
+      - npm install -g pnpm@latest
       # Install dependencies with pnpm
       - pnpm install
   build:
@@ -18,4 +23,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: out  # Directory with output files (e.g., React app)
+  base-directory: out
