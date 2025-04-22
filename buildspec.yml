@@ -2,10 +2,9 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 18
     commands:
-      # Update Node.js to a compatible version (18 or higher)
-      - nvm install 18
-      - nvm use 18
       # Install pnpm globally
       - npm install -g pnpm
       # Install dependencies with pnpm
