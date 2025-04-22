@@ -1,6 +1,11 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      # Install required system dependencies
+      - yum update -y
+      - yum install -y glibc glibc-devel
   install:
     runtime-versions:
       nodejs: 18
