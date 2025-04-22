@@ -3,11 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
+      # Update Node.js to a compatible version (18 or higher)
+      - nvm install 18
+      - nvm use 18
+      # Install pnpm globally
       - npm install -g pnpm
+      # Install dependencies with pnpm
       - pnpm install
   build:
     commands:
-      - pnpm run build  # Builds the project
+      # Run the build command using pnpm
+      - pnpm run build
+      # Invalidate CloudFront cache after building
       - aws cloudfront create-invalidation --distribution-id E1J0UER6Y04W2A --paths "/*"
 artifacts:
   files:
