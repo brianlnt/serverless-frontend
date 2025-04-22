@@ -1,25 +1,33 @@
 version: 0.2
 
 phases:
-  pre_build:
-    commands:
-      # Install required system dependencies
-      - yum update -y
-      - yum install -y glibc glibc-devel
   install:
     runtime-versions:
       nodejs: 18
     commands:
+      # Update system and install required dependencies to fix GLIBC issues
+      - echo "Updating system and installing dependencies..."
+      - sudo apt-get update -y
+      - sudo apt-get install -y libc6 libc6-dev
+
       # Install pnpm globally
+      - echo "Installing pnpm globally..."
       - npm install -g pnpm
-      # Install dependencies with pnpm
+
+      # Install project dependencies using pnpm
+      - echo "Installing project dependencies with pnpm..."
       - pnpm install
+
   build:
     commands:
-      # Run the build command using pnpm
+      # Build the project using pnpm
+      - echo "Building the project..."
       - pnpm run build
-      # Invalidate CloudFront cache after building
+
+      # Invalidate CloudFront cache after build
+      - echo "Invalidating CloudFront cache..."
       - aws cloudfront create-invalidation --distribution-id E1J0UER6Y04W2A --paths "/*"
+
 artifacts:
   files:
     - '**/*'
