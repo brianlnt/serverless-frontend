@@ -2,18 +2,15 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 18
     commands:
-      # Install nvm
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-      - export NVM_DIR="$HOME/.nvm"
-      - . "$NVM_DIR/nvm.sh"
-      # Install Node.js 18
-      - nvm install 18
-      - nvm use 18
+      # Set NODE_OPTIONS for more memory during build
+      - export NODE_OPTIONS="--max-old-space-size=8192"
       # Install pnpm
-      - npm install -g pnpm
+      - npm install -g pnpm@latest
       # Install dependencies
-      - pnpm install
+      - pnpm install --no-frozen-lockfile
 
   build:
     commands:
