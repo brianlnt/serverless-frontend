@@ -2,33 +2,27 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 18
     commands:
-      # Update system and install required dependencies to fix GLIBC issues
-      - echo "Updating system and installing dependencies..."
-      - sudo apt-get update -y
-      - sudo apt-get install -y libc6 libc6-dev
-
-      # Install pnpm globally
-      - echo "Installing pnpm globally..."
+      # Install nvm
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      - export NVM_DIR="$HOME/.nvm"
+      - . "$NVM_DIR/nvm.sh"
+      # Install Node.js 18
+      - nvm install 18
+      - nvm use 18
+      # Install pnpm
       - npm install -g pnpm
-
-      # Install project dependencies using pnpm
-      - echo "Installing project dependencies with pnpm..."
+      # Install dependencies
       - pnpm install
 
   build:
     commands:
-      # Build the project using pnpm
-      - echo "Building the project..."
+      # Run the build command using pnpm
       - pnpm run build
-
-      # Invalidate CloudFront cache after build
-      - echo "Invalidating CloudFront cache..."
+      # Invalidate CloudFront cache after building
       - aws cloudfront create-invalidation --distribution-id E1J0UER6Y04W2A --paths "/*"
 
 artifacts:
   files:
     - '**/*'
-  base-directory: out  # Directory with output files (e.g., React app)
+  base-directory: out
